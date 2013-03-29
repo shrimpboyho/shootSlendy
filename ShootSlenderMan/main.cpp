@@ -1,12 +1,28 @@
 #include <iostream>
+#include <string>
 #include <Windows.h>
 #include <MMSystem.h>
 
-using namespace std;
+// Include the classes:
+
+#include "controlWindows.h"
 
 int main(){
+	
+	// Set the console object
+	controlWindows currentConsole;
+	
+	// Set up teh current console
+	
+	currentConsole.setWindows("title","Shoot SlenderMan");
+	currentConsole.setWindows("color","A1");
+	currentConsole.setWindows("backgroundMusic","theme.wav");
+	
+	// Set the first console text
 	std::cout << "Shoot Slenderman!" << endl;
-	PlaySound(TEXT("theme.wav"), NULL, SND_SYNC);
+
 	system("pause");
 	return 0;
+
 }
+
