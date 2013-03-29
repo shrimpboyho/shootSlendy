@@ -4,7 +4,7 @@
 #include <MMSystem.h>
 #include "controlWindows.h"
 
-
+// Methods
 void controlWindows::setWindows(string element, string customization){
 
 	if(element == "color"){
