@@ -8,6 +8,7 @@ class controlWindows{
 	public:
 		controlWindows(){};
 		void setWindows(string,string);
+		void setTextColor(int);
 
 };
 

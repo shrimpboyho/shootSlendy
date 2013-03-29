@@ -7,6 +7,8 @@
 
 #include "controlWindows.h"
 
+
+
 int main(){
 	
 	// Set the console object
@@ -19,6 +21,7 @@ int main(){
 	currentConsole.setWindows("backgroundMusic","theme.wav");
 	
 	// Set the first console text
+	currentConsole.setTextColor(1);
 	std::cout << "Shoot Slenderman!" << endl;
 
 	system("pause");

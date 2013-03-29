@@ -4,7 +4,17 @@
 #include <MMSystem.h>
 #include "controlWindows.h"
 
-// Methods
+// Methods that use std:
+
+using namespace std;
+
+void controlWindows::setTextColor(int colorcmd){
+
+	HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hcon,colorcmd);
+
+}
+
 void controlWindows::setWindows(string element, string customization){
 
 	if(element == "color"){
@@ -20,3 +30,4 @@ void controlWindows::setWindows(string element, string customization){
 	
 
 }
+
