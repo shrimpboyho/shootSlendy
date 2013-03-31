@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <Windows.h>
+#include <vector>
 #include <MMSystem.h>
 #include "controlWindows.h"
 
@@ -27,7 +28,39 @@ void controlWindows::setWindows(string element, string customization){
 	if(element == "backgroundMusic"){
 		PlaySound(TEXT(customization.c_str()),  NULL, SND_ASYNC|SND_FILENAME|SND_LOOP);
 	}
-	
 
 }
 
+
+void controlWindows::flush(){
+	system("cls");
+}
+
+void controlWindows::createScreen(string screenName, string screenContent){
+
+	screenNameStorage.push_back(screenName);
+	screenContentStorage.push_back(screenContent);
+
+}
+
+void controlWindows::swapScreen(string specificName){
+
+	int i;
+
+	for(i = 0; i < screenNameStorage.size(); i++){
+
+		if(specificName == screenNameStorage[i]){
+			break;
+		}
+
+	}
+	
+	flush();
+	std::cout << screenContentStorage[i];
+	currentScreen = screenNameStorage[i];
+
+}
+
+string controlWindows::getCurrentScreen(){
+	return currentScreen;
+}
