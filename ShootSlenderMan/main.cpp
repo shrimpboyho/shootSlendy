@@ -42,11 +42,11 @@ int main(){
 			
 			if(ch == 's'){
 				currentConsole.swapScreen("menuOnExit");
-				cout<< currentConsole.getCurrentScreen();
+				
 			}
 			if(ch == 'w'){
 				currentConsole.swapScreen("menuOnPlay");
-				cout<< currentConsole.getCurrentScreen();
+				
 			}
 		}
 	
