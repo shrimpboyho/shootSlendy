@@ -5,6 +5,10 @@
 #include <conio.h>
 #include <fstream>
 
+// Include the dewey++ library
+
+#include "dewey.h"
+
 // Include the classes:
 
 #include "controlWindows.h"
