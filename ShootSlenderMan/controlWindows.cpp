@@ -64,3 +64,20 @@ void controlWindows::swapScreen(string specificName){
 string controlWindows::getCurrentScreen(){
 	return currentScreen;
 }
+
+int controlWindows::findPositionOf(vector<string> bankgiven,string stringgiven){
+	
+	int position;
+	int i;
+
+	for(i = 0; i < bankgiven.size(); i++){
+
+		if(bankgiven[i] == stringgiven){			
+			position = i;
+			break;		
+		}
+
+	}
+
+	return position;
+}

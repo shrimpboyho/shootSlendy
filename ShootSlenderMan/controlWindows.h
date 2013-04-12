@@ -19,6 +19,7 @@ class controlWindows{
 		void swapScreen(string);
 		void flush();
 		string getCurrentScreen();
+		int findPositionOf(vector<string>,string);
 	
 };
 
