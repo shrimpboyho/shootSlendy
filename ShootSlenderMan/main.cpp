@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <MMSystem.h>
 #include <conio.h>
+#include <fstream>
 
 // Include the classes:
 
@@ -15,9 +16,10 @@ int main(){
 	// Set the console object
 	controlWindows currentConsole;
 
-	// Set up the key click variable
+	// Set up the key click variable and the splash screen variable
 	
 	char ch;
+	string splashstring;
 
 	// Set up teh current console
 	
@@ -34,6 +36,15 @@ int main(){
 	currentConsole.swapScreen("menuOnPlay");
 	currentConsole.createScreen("menuOnExit","\n\n\n\t\t=====================================\n\n\t\t\t\tMENU\n\n\n\t\t\t\tPlay\n\t\t\t\t->Exit\n\t\t=====================================\n");
 	
+	// Get the splash screen loaded
+	
+	ifstream in("splash.txt");
+	getline(in , splashstring);
+	
+
+	currentConsole.createScreen("splashScreen",splashstring);
+
+
 	while(1==1){
 
 		if(_kbhit()){
@@ -45,8 +56,13 @@ int main(){
 				
 			}
 			if(ch == 'w'){
-				currentConsole.swapScreen("menuOnPlay");
+				currentConsole.swapScreen("menuOnPlay");				
+			}
+
+			if((int)ch == 13){
 				
+				currentConsole.swapScreen("splashScreen");	
+			
 			}
 		}
 	
