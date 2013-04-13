@@ -4,6 +4,11 @@
 #include <MMSystem.h>
 #include <conio.h>
 #include <fstream>
+#include <process.h>
+
+// Thread support (background thread function prototype)
+
+DWORD WINAPI backgroundThread(LPVOID vpParam);
 
 // Include the dewey++ library
 
@@ -16,13 +21,27 @@
 // Set up function prototypes
 
 int setMenu();
+int setFileIO();
 
 int main(){
 	
+	// Create the thread and pass in the function pointer and counter
+	unsigned int uiCounter = 0;
+	DWORD qThreadID;
+	HANDLE hThread = CreateThread(0, 0, backgroundThread, &uiCounter, 0, &qThreadID);
+	
+
+	// Close the handle to the thread
+	
+	//CloseHandle(hThread);
+	
 	setMenu();
+	
 	return 0;
 
 }
+
+/* Main Function repsponsible for setting up the menu interface */
 
 int setMenu(){
 
@@ -130,4 +149,29 @@ int setMenu(){
 	}
 
 
+}
+
+/** THE FUNCTION WHICH MANAGES THE USER DATA STORED ON THE COMPUTER */
+
+int setFileIO(){
+
+	//ArrayToTextFile setEnvironment("blob.txt");
+
+	return 0;
+}
+
+
+/*BACKGROUND THREAD */
+
+
+DWORD WINAPI backgroundThread(LPVOID vpParam){
+	
+	unsigned int& uirCounter = *((unsigned int*)vpParam);
+	
+	cout << "In background thread";
+	/* Increment up to the maximum value
+	while (uirCounter < 0xFFFFFFFF) {
+		++uirCounter;
+	}*/
+	return 0;
 }
