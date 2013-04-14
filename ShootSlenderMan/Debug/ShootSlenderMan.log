@@ -1,4 +1,4 @@
-﻿Build started 4/13/2013 3:45:56 PM.
+﻿Build started 4/14/2013 1:20:26 PM.
      1>Project "C:\Documents and Settings\Administrator.ESUMSROBOTICSLA\Desktop\slendy\ShootSlenderMan\ShootSlenderMan.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\ShootSlenderMan.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -7,7 +7,7 @@
          main.cpp
      1>c:\documents and settings\administrator.esumsroboticsla\desktop\slendy\shootslenderman\calctools.h(76): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
      1>c:\documents and settings\administrator.esumsroboticsla\desktop\slendy\shootslenderman\calctools.h(89): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\documents and settings\administrator.esumsroboticsla\desktop\slendy\shootslenderman\main.cpp(101): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _getch. See online help for details.
+     1>c:\documents and settings\administrator.esumsroboticsla\desktop\slendy\shootslenderman\main.cpp(112): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _getch. See online help for details.
                  c:\program files\microsoft visual studio 10.0\vc\include\conio.h(128) : see declaration of 'getch'
        Link:
          C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Documents and Settings\Administrator.ESUMSROBOTICSLA\Desktop\slendy\Debug\ShootSlenderMan.exe" /NOLOGO winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\ShootSlenderMan.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Documents and Settings\Administrator.ESUMSROBOTICSLA\Desktop\slendy\Debug\ShootSlenderMan.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Documents and Settings\Administrator.ESUMSROBOTICSLA\Desktop\slendy\Debug\ShootSlenderMan.lib" /MACHINE:X86 Debug\controlWindows.obj
@@ -23,4 +23,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.98
+Time Elapsed 00:00:01.82

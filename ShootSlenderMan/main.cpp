@@ -21,20 +21,28 @@ DWORD WINAPI backgroundThread(LPVOID vpParam);
 // Set up function prototypes
 
 int setMenu();
-int setFileIO();
+int setFileIO(string);
 
-int main(){
-	
-	// Create the thread and pass in the function pointer and counter
+// Create the thread global variables
+
 	unsigned int uiCounter = 0;
 	DWORD qThreadID;
-	HANDLE hThread = CreateThread(0, 0, backgroundThread, &uiCounter, 0, &qThreadID);
-	
 
-	// Close the handle to the thread
+// USER SETTINGS and INFO!!! GLOBAL DATA VARIABLES!!!!!!!
+
+string UserSettings[100];
+
 	
-	//CloseHandle(hThread);
+// Start the background worker thread
+
+HANDLE hThread = CreateThread(0, 0, backgroundThread, &uiCounter, 0, &qThreadID);
 	
+int main(){	
+	
+	// Start FileIO
+	setFileIO("onStart");
+
+	// Start the menu
 	setMenu();
 	
 	return 0;
@@ -94,6 +102,9 @@ int setMenu(){
 	currentConsole.createScreen("splashScreen",splashstring);
 
 
+	/* BEGIN CATCHING THE USER INPUT */
+
+
 	while(1==1){
 
 		if(_kbhit()){
@@ -130,8 +141,11 @@ int setMenu(){
 				if(currentConsole.getCurrentScreen() != "menuOnPlay"){          /*ONLY IF WE DON'T GO OUT OF VECTOR RANGE*/
 					currentConsole.swapScreen(menuScreenOptionsVector[indexnumber-1]);	
 				}
+				
 			}
 
+			/* Code for enter key press on menu item */
+			
 			if((int)ch == 13){
 				
 				if(currentConsole.getCurrentScreen() == "menuOnPlay"){
@@ -139,6 +153,13 @@ int setMenu(){
 				}
 
 				if(currentConsole.getCurrentScreen() == "menuOnExit"){
+					
+					// Close the handle to the thread
+					CloseHandle(hThread);
+					
+					// Finalize the file io variables on program exit
+					setFileIO("onEnd");
+					
 					return 0;			
 				}
 					
@@ -153,9 +174,24 @@ int setMenu(){
 
 /** THE FUNCTION WHICH MANAGES THE USER DATA STORED ON THE COMPUTER */
 
-int setFileIO(){
+int setFileIO(string command){
 
-	//ArrayToTextFile setEnvironment("blob.txt");
+	if(command == "onStart"){
+	
+		// Read data from data file and store into the user settings array. 
+		TextFileToArray reader("blob.txt",'%');
+		reader.arrayfiller(&UserSettings[0]);
+		cout<< UserSettings[0];
+	
+	}
+
+	if(command == "onEnd"){
+	
+		// Take modified user settings and write from the array to the text file. 
+	
+	
+	}
+	
 
 	return 0;
 }
